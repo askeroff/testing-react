@@ -12,7 +12,8 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['build'], {
-      exclude: ['template.html']
+      exclude: ['template.html'],
+      watch: true
     }),
     new HtmlWebpackPlugin({
       title: 'Testing React Lessons',
