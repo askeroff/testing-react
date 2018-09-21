@@ -9,10 +9,16 @@ class AddForm extends React.Component {
       bookName: e.target.value
     });
   };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { dataManager } = this.props;
+    dataManager.add(this.state.bookName);
+  };
   render() {
     const { bookName } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="bookname" style={{ paddingRight: '10px' }}>
           Add new book
         </label>
@@ -22,7 +28,7 @@ class AddForm extends React.Component {
           id="bookname"
           type="text"
         />
-        <input type="submit" />
+        <input data-testid="submit" type="submit" />
       </form>
     );
   }

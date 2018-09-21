@@ -1,6 +1,7 @@
 import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 import AddForm from '../add-form';
+import DataManager from '../data-manager';
 
 describe('AddForm adds new books', () => {
   test('Component renders', () => {
@@ -17,6 +18,20 @@ describe('AddForm adds new books', () => {
     expect(component.getByLabelText('Add new book').value).toBe(
       'War and Peace'
     );
+  });
+
+  test('User can submit a new book', () => {
+    const dataManager = new DataManager();
+    const component = render(<AddForm dataManager={dataManager} />);
+    fireEvent.change(component.getByLabelText('Add new book'), {
+      target: {
+        value: 'War and Peace'
+      }
+    });
+    fireEvent.click(component.getByTestId('submit'));
+    const books = JSON.parse(localStorage.getItem('books'));
+    expect(books.length).toBe(1);
+    expect(books[0].name).toBe('War and Peace');
   });
 
   afterEach(cleanup);
