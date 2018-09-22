@@ -9,9 +9,9 @@ To have **node** amd **npm** installed.To know at least some react and **javascr
 # How to use it?
 
 - Clone this repository or download it
-- Run ** npm install ** in your terminal
-- Run ** npm start ** to start the server and webpack
-- Run ** npm test ** for running tests
+- Run **npm install** in your terminal
+- Run **npm start** to start the server and webpack
+- Run **npm test** for running tests
 
 # Code Examples
 
