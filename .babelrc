@@ -5,9 +5,10 @@
       "env",
       {
         "targets": {
-          "browsers": "last 2 versions"
+          "chrome": "58"
         }
       }
     ]
-  ]
+  ],
+  "plugins": ["transform-class-properties"]
 }

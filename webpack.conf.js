@@ -20,6 +20,9 @@ module.exports = {
       template: './build/template.html'
     })
   ],
+  resolve: {
+    extensions: ['.jsx', '.js', 'json']
+  },
   module: {
     rules: [
       {
