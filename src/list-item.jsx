@@ -20,11 +20,12 @@ class ListItem extends React.Component {
     const { id } = this.props;
     const decorated = checked ? 'line-through' : 'unset';
     const key = `book-${id}`;
+    const checkboxId = `checkbox-${id}`;
     return (
       <li style={{ textDecoration: decorated }} data-testid={key}>
-        <label htmlFor={`checkbox-${id}`}>
+        <label htmlFor={checkboxId}>
           <Checkbox
-            id={id}
+            id={checkboxId}
             onChange={e => this.handleChange(e, id)}
             checked={checked}
           />
