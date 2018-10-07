@@ -5,8 +5,19 @@ class DataManager {
 
   add(name) {
     const books = this.getBooks();
-    books.push({ name });
+    books.push({ name, read: false });
     localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  changeBook(prop, value, index) {
+    const books = this.getBooks();
+    const changedBooks = books.map((item, i) => {
+      if (index === i) {
+        item[prop] = value;
+      }
+      return item;
+    });
+    localStorage.setItem('books', JSON.stringify(changedBooks));
   }
 }
 
