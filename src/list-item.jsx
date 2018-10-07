@@ -22,8 +22,14 @@ class ListItem extends React.Component {
     const key = `book-${id}`;
     return (
       <li style={{ textDecoration: decorated }} data-testid={key}>
-        <Checkbox onChange={e => this.handleChange(e, id)} checked={checked} />
-        {this.props.name}
+        <label htmlFor={`checkbox-${id}`}>
+          <Checkbox
+            id={id}
+            onChange={e => this.handleChange(e, id)}
+            checked={checked}
+          />
+          {this.props.name}
+        </label>
       </li>
     );
   }
