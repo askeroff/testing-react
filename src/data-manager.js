@@ -3,6 +3,14 @@ class DataManager {
     return JSON.parse(localStorage.getItem('books')) || [];
   }
 
+  loadBooks() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.getBooks());
+      }, 0);
+    });
+  }
+
   add(name) {
     const books = this.getBooks();
     books.push({ name, read: false });
