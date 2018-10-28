@@ -23,6 +23,5 @@ describe('Mock tests', () => {
 
   test('Datamanager', () => {
     const manager = new DataManager();
-    console.log(manager.getBooks());
   });
 });
