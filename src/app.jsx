@@ -10,15 +10,12 @@ export default class App extends React.Component {
     books: []
   };
 
-  async componentDidMount() {
-    const books = await this.dataManager.loadBooks();
+  componentDidMount() {
+    const books = this.dataManager.getBooks();
     this.setState({ books });
   }
 
   render() {
-    if (this.state.books.length === 0) {
-      return <div>...loading</div>;
-    }
     return (
       <div>
         <div style={{ width: '600px', margin: 'auto' }}>
