@@ -11,6 +11,10 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
+    this.setBooks();
+  }
+  
+  setBooks = () => {
     const books = this.dataManager.getBooks();
     this.setState({ books });
   }
@@ -20,7 +24,7 @@ export default class App extends React.Component {
       <div>
         <div style={{ width: '600px', margin: 'auto' }}>
           <h2 className="title">Books to read</h2>
-          <AddForm dataManager={this.dataManager} />
+          <AddForm updateBooks={this.setBooks} dataManager={this.dataManager} />
 
           <BooksList books={this.state.books} />
         </div>

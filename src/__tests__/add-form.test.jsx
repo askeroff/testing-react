@@ -22,7 +22,9 @@ describe('AddForm adds new books', () => {
 
   test('User can submit a new book', () => {
     const dataManager = new DataManager();
-    const component = render(<AddForm dataManager={dataManager} />);
+    const component = render(
+      <AddForm updateBooks={jest.fn()} dataManager={dataManager} />
+    );
     fireEvent.change(component.getByLabelText('Add new book'), {
       target: {
         value: 'War and Peace'

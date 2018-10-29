@@ -12,8 +12,9 @@ class AddForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { dataManager } = this.props;
+    const { dataManager, updateBooks } = this.props;
     dataManager.add(this.state.bookName);
+    updateBooks();
   };
   render() {
     const { bookName } = this.state;
