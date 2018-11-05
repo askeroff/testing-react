@@ -16,6 +16,12 @@ class DataManager {
     books.push({ name, read: false });
     localStorage.setItem('books', JSON.stringify(books));
   }
+  
+  delete(index) {
+    const books = this.getBooks();
+    books.splice(index, 1);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
 
   changeBook(prop, value, index) {
     const books = this.getBooks();
