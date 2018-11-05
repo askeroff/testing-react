@@ -9,8 +9,8 @@ describe('BookList', () => {
     dataManager.add('Book 1');
     dataManager.add('Book 2');
     const component = render(<BooksList books={dataManager.getBooks()} />);
-    expect(component.getByTestId('book-0').textContent).toBe('Book 1');
-    expect(component.getByTestId('book-1').textContent).toBe('Book 2');
+    expect(component.getByTestId('checkbox-0').textContent).toBe('Book 1');
+    expect(component.getByTestId('checkbox-1').textContent).toBe('Book 2');
   });
 
   test('Clicking on a book marks it as read', () => {
