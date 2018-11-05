@@ -13,11 +13,11 @@ export default class App extends React.Component {
   componentDidMount() {
     this.setBooks();
   }
-  
+
   setBooks = () => {
     const books = this.dataManager.getBooks();
     this.setState({ books });
-  }
+  };
 
   render() {
     return (
@@ -26,7 +26,11 @@ export default class App extends React.Component {
           <h2 className="title">Books to read</h2>
           <AddForm updateBooks={this.setBooks} dataManager={this.dataManager} />
 
-          <BooksList books={this.state.books} />
+          <BooksList
+            dataManager={this.dataManager}
+            updateBooks={this.setBooks}
+            books={this.state.books}
+          />
         </div>
       </div>
     );
