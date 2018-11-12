@@ -4,15 +4,13 @@ function sum(x, y) {
   return x + y;
 }
 
-jest.mock('../data-manager', () => {
-  return class {
-    getBooks() {
-      return [{ name: 'Book 1', read: false }];
-    }
-  };
-});
+jest.mock('../data-manager');
 
 describe('Mock tests', () => {
+  beforeEach(() => {
+    DataManager.mockClear();
+  });
+
   test('2 + 3 return five', () => {
     const sum = jest.fn((x, y) => x + y);
     expect(sum(2, 3)).toBe(5);
@@ -23,5 +21,12 @@ describe('Mock tests', () => {
 
   test('Datamanager', () => {
     const manager = new DataManager();
+    manager.getBooks();
+    expect(DataManager).toHaveBeenCalledTimes(1);
+  });
+
+  test('Datamanager 2', () => {
+    const manager = new DataManager();
+    expect(DataManager).toHaveBeenCalledTimes(1);
   });
 });
